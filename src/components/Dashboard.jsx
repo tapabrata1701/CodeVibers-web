@@ -1,17 +1,23 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card.jsx";
-import { Badge } from "./ui/badge.jsx";
-import { Button } from "./ui/button.jsx";
-import { Progress } from "./ui/progress.jsx";
-import { 
-  AlertTriangle, 
-  Droplets, 
-  Users, 
-  MapPin, 
-  TrendingUp, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import {
+  AlertTriangle,
+  Droplets,
+  Users,
+  MapPin,
+  TrendingUp,
   Activity,
   Shield,
   Phone,
-  Clock
+  Clock,
 } from "lucide-react";
 
 const mockAlerts = [
@@ -21,7 +27,7 @@ const mockAlerts = [
     location: "Imphal East District",
     cases: 15,
     severity: "critical",
-    time: "2 hours ago"
+    time: "2 hours ago",
   },
   {
     id: 2,
@@ -29,7 +35,7 @@ const mockAlerts = [
     location: "Kohima Block",
     issue: "High turbidity detected",
     severity: "warning",
-    time: "4 hours ago"
+    time: "4 hours ago",
   },
   {
     id: 3,
@@ -37,8 +43,8 @@ const mockAlerts = [
     location: "Aizawl Rural",
     cases: 8,
     severity: "moderate",
-    time: "6 hours ago"
-  }
+    time: "6 hours ago",
+  },
 ];
 
 const waterQualityData = [
@@ -46,28 +52,31 @@ const waterQualityData = [
   { location: "Kohima", status: "warning", score: 67 },
   { location: "Aizawl", status: "safe", score: 88 },
   { location: "Agartala", status: "safe", score: 94 },
-  { location: "Itanagar", status: "warning", score: 71 }
+  { location: "Itanagar", status: "warning", score: 71 },
 ];
 
 export const Dashboard = () => {
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         <div className="mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-foreground">
             Health Officials Dashboard
           </h2>
           <p className="text-xl text-muted-foreground">
-            Real-time monitoring and early warning system for water-borne disease prevention
+            Real-time monitoring and early warning system for water-borne
+            disease prevention
           </p>
         </div>
 
         {/* Key Metrics */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid gap-6 mb-12 md:grid-cols-2 lg:grid-cols-4">
           <Card className="border-l-4 border-l-primary">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Cases</CardTitle>
-              <Activity className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium">
+                Active Cases
+              </CardTitle>
+              <Activity className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-primary">142</div>
@@ -79,9 +88,11 @@ export const Dashboard = () => {
           </Card>
 
           <Card className="border-l-4 border-l-secondary">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Water Sources</CardTitle>
-              <Droplets className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium">
+                Water Sources
+              </CardTitle>
+              <Droplets className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-secondary">1,247</div>
@@ -93,9 +104,11 @@ export const Dashboard = () => {
           </Card>
 
           <Card className="border-l-4 border-l-accent">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">ASHA Workers</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium">
+                ASHA Workers
+              </CardTitle>
+              <Users className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-accent">2,847</div>
@@ -107,9 +120,11 @@ export const Dashboard = () => {
           </Card>
 
           <Card className="border-l-4 border-l-destructive">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">High Risk Areas</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium">
+                High Risk Areas
+              </CardTitle>
+              <AlertTriangle className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-destructive">7</div>
@@ -121,7 +136,7 @@ export const Dashboard = () => {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid gap-8 lg:grid-cols-2">
           {/* Recent Alerts */}
           <Card>
             <CardHeader>
@@ -135,26 +150,31 @@ export const Dashboard = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               {mockAlerts.map((alert) => (
-                <div key={alert.id} className="flex items-center justify-between p-4 border rounded-lg">
+                <div
+                  key={alert.id}
+                  className="flex items-center justify-between p-4 border rounded-lg">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <Badge 
+                      <Badge
                         variant={
-                          alert.severity === "critical" ? "destructive" : 
-                          alert.severity === "warning" ? "secondary" : 
-                          "outline"
-                        }
-                      >
+                          alert.severity === "critical"
+                            ? "destructive"
+                            : alert.severity === "warning"
+                            ? "secondary"
+                            : "outline"
+                        }>
                         {alert.type}
                       </Badge>
-                      <span className="text-sm text-muted-foreground flex items-center">
+                      <span className="flex items-center text-sm text-muted-foreground">
                         <Clock className="w-3 h-3 mr-1" />
                         {alert.time}
                       </span>
                     </div>
                     <div className="font-medium">{alert.location}</div>
                     <div className="text-sm text-muted-foreground">
-                      {alert.cases ? `${alert.cases} cases reported` : alert.issue}
+                      {alert.cases
+                        ? `${alert.cases} cases reported`
+                        : alert.issue}
                     </div>
                   </div>
                   <Button size="sm" variant="outline">
@@ -182,10 +202,15 @@ export const Dashboard = () => {
                 <div key={index} className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{location.location}</span>
-                    <Badge 
-                      variant={location.status === "safe" ? "default" : "secondary"}
-                      className={location.status === "safe" ? "bg-water-safe" : "bg-water-warning"}
-                    >
+                    <Badge
+                      variant={
+                        location.status === "safe" ? "default" : "secondary"
+                      }
+                      className={
+                        location.status === "safe"
+                          ? "bg-water-safe"
+                          : "bg-water-warning"
+                      }>
                       {location.score}% {location.status}
                     </Badge>
                   </div>
