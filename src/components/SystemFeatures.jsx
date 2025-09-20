@@ -4,8 +4,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Brain,
   Droplets,
@@ -94,68 +94,36 @@ const features = [
 ];
 
 export const SystemFeatures = () => {
-  const colorClasses = {
-    primary: {
-      text: "text-blue-600",
-      from: "from-blue-500/20",
-      to: "to-blue-500/10",
-    },
-    secondary: {
-      text: "text-zinc-600",
-      from: "from-zinc-500/20",
-      to: "to-zinc-500/10",
-    },
-    accent: {
-      text: "text-emerald-600",
-      from: "from-emerald-500/20",
-      to: "to-emerald-500/10",
-    },
-    destructive: {
-      text: "text-red-600",
-      from: "from-red-500/20",
-      to: "to-red-500/10",
-    },
-  };
   return (
     <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+      <div className="container px-4 mx-auto">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-foreground">
             Comprehensive Health Surveillance Platform
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
             A complete ecosystem of AI-powered tools designed specifically for
             rural Northeast India's unique healthcare challenges and
             infrastructure constraints.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20"
-            >
+              className="transition-all duration-300 border-2 group hover:shadow-lg hover:border-primary/20">
               <CardHeader className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div
-                    className={`w-12 h-12 rounded-lg bg-gradient-to-br ${
-                      colorClasses[feature.color]?.from || ""
-                    } ${
-                      colorClasses[feature.color]?.to || ""
-                    } flex items-center justify-center group-hover:scale-110 transition-transform`}
-                  >
-                    <feature.icon
-                      className={`w-6 h-6 ${
-                        colorClasses[feature.color]?.text || ""
-                      }`}
-                    />
+                    className={`w-12 h-12 rounded-lg bg-gradient-to-br from-${feature.color}/20 to-${feature.color}/10 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <feature.icon className={`w-6 h-6 text-${feature.color}`} />
                   </div>
                   <Badge variant="secondary" className="text-xs">
                     {feature.badge}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl transition-colors group-hover:text-primary">
                   {feature.title}
                 </CardTitle>
               </CardHeader>

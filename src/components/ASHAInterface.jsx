@@ -82,17 +82,11 @@ const todaysTasks = [
 ];
 
 export const ASHAInterface = () => {
-  const colorText = {
-    primary: "text-blue-600",
-    secondary: "text-zinc-600",
-    accent: "text-emerald-600",
-    destructive: "text-red-600",
-  };
   return (
     <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         <div className="mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-foreground">
             ASHA Worker Mobile Interface
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -100,7 +94,7 @@ export const ASHAInterface = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 lg:grid-cols-3">
           {/* Quick Actions */}
           <Card className="lg:col-span-1">
             <CardHeader>
@@ -115,13 +109,10 @@ export const ASHAInterface = () => {
                 <Button
                   key={index}
                   variant="outline"
-                  className="w-full justify-start h-auto p-4 group hover:border-primary/50"
-                >
+                  className="justify-start w-full h-auto p-4 group hover:border-primary/50">
                   <div className="flex items-start space-x-3">
                     <action.icon
-                      className={`w-5 h-5 mt-0.5 ${
-                        colorText[action.color] || ""
-                      } group-hover:scale-110 transition-transform`}
+                      className={`w-5 h-5 mt-0.5 text-${action.color} group-hover:scale-110 transition-transform`}
                     />
                     <div className="text-left">
                       <div className="font-medium">{action.title}</div>
@@ -150,8 +141,7 @@ export const ASHAInterface = () => {
               {recentReports.map((report) => (
                 <div
                   key={report.id}
-                  className="flex items-center justify-between p-4 border rounded-lg bg-card"
-                >
+                  className="flex items-center justify-between p-4 border rounded-lg bg-card">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="outline">{report.type}</Badge>
@@ -165,18 +155,17 @@ export const ASHAInterface = () => {
                         }
                         className={
                           report.status === "completed" ? "bg-accent" : ""
-                        }
-                      >
+                        }>
                         {report.status}
                       </Badge>
                     </div>
-                    <div className="font-medium mb-1">
+                    <div className="mb-1 font-medium">
                       {report.patient || report.location || report.activity}
                     </div>
                     <div className="text-sm text-muted-foreground">
                       {report.symptoms || report.issue || report.participants}
                     </div>
-                    <div className="text-xs text-muted-foreground mt-1">
+                    <div className="mt-1 text-xs text-muted-foreground">
                       {report.time}
                     </div>
                   </div>
@@ -190,7 +179,7 @@ export const ASHAInterface = () => {
         </div>
 
         {/* Today's Tasks & Features */}
-        <div className="grid lg:grid-cols-2 gap-8 mt-8">
+        <div className="grid gap-8 mt-8 lg:grid-cols-2">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
@@ -209,8 +198,7 @@ export const ASHAInterface = () => {
                       task.completed
                         ? "bg-accent border-accent"
                         : "border-muted-foreground"
-                    }`}
-                  >
+                    }`}>
                     {task.completed && (
                       <CheckCircle className="w-3 h-3 text-white" />
                     )}
@@ -218,8 +206,7 @@ export const ASHAInterface = () => {
                   <span
                     className={`flex-1 ${
                       task.completed ? "line-through text-muted-foreground" : ""
-                    }`}
-                  >
+                    }`}>
                     {task.task}
                   </span>
                 </div>
@@ -236,7 +223,7 @@ export const ASHAInterface = () => {
               <CardDescription>Optimized for field conditions</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+              <div className="flex items-center p-3 space-x-3 rounded-lg bg-muted/50">
                 <Camera className="w-5 h-5 text-secondary" />
                 <div>
                   <div className="font-medium">Photo Documentation</div>
@@ -246,7 +233,7 @@ export const ASHAInterface = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+              <div className="flex items-center p-3 space-x-3 rounded-lg bg-muted/50">
                 <Mic className="w-5 h-5 text-accent" />
                 <div>
                   <div className="font-medium">Voice Recording</div>
@@ -256,7 +243,7 @@ export const ASHAInterface = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+              <div className="flex items-center p-3 space-x-3 rounded-lg bg-muted/50">
                 <MapPin className="w-5 h-5 text-primary" />
                 <div>
                   <div className="font-medium">GPS Tracking</div>

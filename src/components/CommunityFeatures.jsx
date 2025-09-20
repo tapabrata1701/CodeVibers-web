@@ -61,19 +61,14 @@ const educationModules = [
 ];
 
 export const CommunityFeatures = () => {
-  const colorText = {
-    primary: "text-blue-600",
-    secondary: "text-zinc-600",
-    accent: "text-emerald-600",
-  };
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+      <div className="container px-4 mx-auto">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-foreground">
             Community Engagement Platform
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
             Empowering Northeast India's diverse communities through
             multilingual health education, gamified reporting, and culturally
             sensitive awareness programs.
@@ -81,18 +76,13 @@ export const CommunityFeatures = () => {
         </div>
 
         {/* Community Stats */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid gap-6 mb-12 md:grid-cols-2 lg:grid-cols-4">
           {communityStats.map((stat, index) => (
             <Card
               key={index}
-              className="text-center border-2 hover:border-primary/20 transition-colors"
-            >
+              className="text-center transition-colors border-2 hover:border-primary/20">
               <CardContent className="pt-6">
-                <div
-                  className={`text-3xl font-bold ${
-                    colorText[stat.color] || ""
-                  } mb-2`}
-                >
+                <div className={`text-3xl font-bold text-${stat.color} mb-2`}>
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">
@@ -103,7 +93,7 @@ export const CommunityFeatures = () => {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid gap-12 lg:grid-cols-2">
           {/* Multilingual Support */}
           <div className="space-y-8">
             <Card>
@@ -122,15 +112,14 @@ export const CommunityFeatures = () => {
                     <Badge
                       key={index}
                       variant="outline"
-                      className="text-xs px-2 py-1"
-                    >
+                      className="px-2 py-1 text-xs">
                       {lang}
                     </Badge>
                   ))}
                 </div>
 
-                <div className="space-y-3 pt-4">
-                  <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+                <div className="pt-4 space-y-3">
+                  <div className="flex items-center p-3 space-x-3 rounded-lg bg-muted/50">
                     <Volume2 className="w-5 h-5 text-secondary" />
                     <div>
                       <div className="font-medium">Voice-Based Reporting</div>
@@ -140,7 +129,7 @@ export const CommunityFeatures = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+                  <div className="flex items-center p-3 space-x-3 rounded-lg bg-muted/50">
                     <MessageCircle className="w-5 h-5 text-accent" />
                     <div>
                       <div className="font-medium">SMS Integration</div>
@@ -165,15 +154,15 @@ export const CommunityFeatures = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-primary/10 rounded-lg">
-                    <Award className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <div className="p-4 text-center rounded-lg bg-primary/10">
+                    <Award className="w-8 h-8 mx-auto mb-2 text-primary" />
                     <div className="font-bold text-primary">2,847</div>
                     <div className="text-xs text-muted-foreground">
                       Points Earned
                     </div>
                   </div>
-                  <div className="text-center p-4 bg-secondary/10 rounded-lg">
-                    <Users className="w-8 h-8 text-secondary mx-auto mb-2" />
+                  <div className="p-4 text-center rounded-lg bg-secondary/10">
+                    <Users className="w-8 h-8 mx-auto mb-2 text-secondary" />
                     <div className="font-bold text-secondary">156</div>
                     <div className="text-xs text-muted-foreground">
                       Top Contributors
@@ -201,7 +190,7 @@ export const CommunityFeatures = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {educationModules.map((module, index) => (
-                  <div key={index} className="space-y-3 p-4 border rounded-lg">
+                  <div key={index} className="p-4 space-y-3 border rounded-lg">
                     <div className="flex items-center justify-between">
                       <h4 className="font-medium">{module.title}</h4>
                       <Badge variant="secondary">
